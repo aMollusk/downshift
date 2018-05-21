@@ -316,6 +316,7 @@ class Downshift extends Component {
         ...stateToSet,
       })
     }
+    console.log('start internal statechange')
     return this.setState(
       state => {
         state = this.getState(state)
@@ -383,6 +384,9 @@ class Downshift extends Component {
         return nextState
       },
       () => {
+        console.log('Internal state change return statement')
+        this.props.onChange('this.props.onChange: test invocation')
+        console.log('After')
         // call the provided callback if it's a callback
         cbToCb(cb)()
 
